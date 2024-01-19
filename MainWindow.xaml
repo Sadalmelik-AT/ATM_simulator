@@ -1,0 +1,19 @@
+﻿<Window x:Class="SilvioBaldwinTsangaCadet_PP1_Projet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilvioBaldwinTsangaCadet_PP1_Projet"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,74,0,0" TextWrapping="Wrap" Text="Entrez vos informations personnelles pour vous connecter." VerticalAlignment="Top" Height="33" Width="368"/>
+        <Label Content="Email :" HorizontalAlignment="Left" Margin="216,110,0,0" VerticalAlignment="Top" Height="32" Width="158"/>
+        <TextBox x:Name="txtBoxEmail" HorizontalAlignment="Left" Height="23" Margin="216,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" RenderTransformOrigin="-0.022,-0.587" TextChanged="txtBoxEmail_TextChanged"/>
+        <Label Content="NIP :" HorizontalAlignment="Left" Margin="216,180,0,0" VerticalAlignment="Top" Height="32" Width="158"/>
+        <PasswordBox x:Name="PasswordBoxNIP" HorizontalAlignment="Left" Margin="216,217,0,180.667" VerticalAlignment="Center" Height="23" Width="210" PasswordChanged="BoxMotPasse_PasswordChanged"/>
+        <Button Content="Connecter" x:Name="btnConnect" HorizontalAlignment="Center" VerticalAlignment="Top" Width="156" Margin="218,267,418,0" Click="btnConnect_Click"/>
+        <ComboBox x:Name="ComboBoxGuichet" HorizontalAlignment="Left" Margin="540,147,0,0" IsSynchronizedWithCurrentItem="true" DisplayMemberPath="CodeGuichet" ItemsSource="{Binding}" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxGuichet_SelectionChanged"/>
+        <Button x:Name="btnAdmin" Content="Connexion administrateur" HorizontalAlignment="Left" Margin="540,192,0,0" VerticalAlignment="Top" Width="160" Height="20" Click="btnAdmin_Click"/>
+    </Grid>
+</Window>

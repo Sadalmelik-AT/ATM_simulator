@@ -1,0 +1,84 @@
+﻿<Window x:Class="SilvioBaldwinTsangaCadet_PP1_Projet.adminUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilvioBaldwinTsangaCadet_PP1_Projet"
+        mc:Ignorable="d"
+        Title="adminUI" Height="486" Width="547.053">
+    <Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="LabelAdmin" Content="Bienvenue.... :" HorizontalAlignment="Left" Margin="153,10,0,0" VerticalAlignment="Top" Height="32" Width="194" RenderTransformOrigin="2.556,1.104"/>
+        <Button x:Name="btnSoldeGuichet" Content="Solde Guichet" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="63,407,0,0" Height="20" RenderTransformOrigin="3.588,4.837" Click="btnSoldeGuichet_Click"/>
+        <Button x:Name="btnQuitter" Content="Quitter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="452,10,0,0" Height="20" Click="btnQuitter_Click"/>
+        <Button x:Name="btnInteretEpargne" Content="Interet epargne" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="182,407,0,0" Height="20" Click="btnInteretEpargne_Click"/>
+        <Button x:Name="btnHypotheque" Content="Hypotheque" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="410,407,0,0" Height="20" RenderTransformOrigin="0.956,0.867" Click="btnHypotheque_Click"/>
+        <Button x:Name="btnMargeCredit" Content="Marge de credit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="297,407,0,0" Height="20" Click="btnMargeCredit_Click"/>
+        <TabControl HorizontalAlignment="Left" Height="355" VerticalAlignment="Top" Width="456" Margin="50,47,0,0">
+            <TabItem Header="Ajouter Client">
+                <Grid Margin="10,10,5,10">
+                    <Label Content="Code Client: " VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtCodeClient" Margin="120,0,0,277" TextChanged="txtCodeClient_TextChanged"/>
+                    <Label x:Name="lblCodeClient" Content="ex:001" Margin="308,0,0,277"/>
+
+                    <Label Content="Nom:" VerticalAlignment="Top" Margin="0,30,0,0"/>
+                    <TextBox x:Name="txtNom" Margin="120,30,0,247"/>
+                    <Label Content="ex: Joe" Margin="308,30,0,247"/>
+
+                    <Label Content="Prenom:" VerticalAlignment="Top" Margin="0,60,0,0"/>
+                    <TextBox x:Name="txtPrenom" Margin="120,60,0,217"/>
+                    <Label Content="ex: Bloe" Margin="308,60,0,217"/>
+
+                    <Label Content="Telephone:" VerticalAlignment="Top" Margin="0,90,0,0"/>
+                    <TextBox x:Name="txtTelephone" Margin="120,90,0,187"/>
+                    <Label Content="ex:111-111-1111" Margin="308,90,0,187"/>
+
+                    <Label Content="Email:" VerticalAlignment="Top" Margin="0,120,0,0"/>
+                    <TextBox x:Name="txtEmail" Margin="120,120,0,157" TextChanged="txtEmail_TextChanged"/>
+                    <Label x:Name="lblEmail" Content="ex@example.com" Margin="299,120,0,157"/>
+                    <Label Content="NIP:" VerticalAlignment="Top" Margin="0,150,0,0"/>
+                    <TextBox x:Name="txtNIP" Margin="120,150,0,131"/>
+                    <Label Content="ex:1111" Margin="308,150,0,131"/>
+                    <CheckBox x:Name="chkBlocked" Content="Blocke" Margin="0,210,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="btnAjoutClient" Content="Ajouter Client" Margin="193,258,94,0" VerticalAlignment="Top" Width="120" Height="25" RenderTransformOrigin="0.613,1.341" Click="btnAjoutClient_Click_1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ajouter Compte">
+                <Grid Margin="10">
+                    <Label Content="Code Client: " VerticalAlignment="Top" Margin="5,121,-5,0"/>
+                    <ComboBox x:Name="cmbCodeClient" IsSynchronizedWithCurrentItem="true"  Margin="120,117,180,160" SelectionChanged="cmbCodeClient_SelectionChanged"/>
+                    <TextBox x:Name="txtCodeCompte" Margin="255,117,-5,160"/>
+
+                    <Label Content="Type Compte:" VerticalAlignment="Top" Margin="0,152,0,0"/>
+                    <ComboBox x:Name="cmbTypeCompte" Margin="120,152,180,129" SelectionChanged="cmbTypeCompte_SelectionChanged"/>
+                    <TextBox x:Name="txtTypeCompte" Margin="255,152,-5,129"/>
+
+                    <Button x:Name="btnAjoutCompte" Content="Ajouter un compte" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="173,200,0,0" Height="20" RenderTransformOrigin="0.498,1.787" Click="btnAjoutCompte_Click"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Liste transactions">
+                <DataGrid x:Name="listeTransactions" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="327"  VerticalAlignment="Top" Width="451" Margin="0,1,-1,-1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Client" Binding="{Binding Column6}" />
+                        <DataGridTextColumn Header="Type Transaction" Binding="{Binding Column1}" />
+                        <DataGridTextColumn Header="De" Binding="{Binding Column2}" />
+                        <DataGridTextColumn Header="À" Binding="{Binding Column3}" />
+                        <DataGridTextColumn Header="Montant ($)" Binding="{Binding Column4}" />
+                        <DataGridTextColumn Header="Date" Binding="{Binding Column5}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem >
+            <TabItem Header="bloquer/debloquer">
+                <Grid>
+                    <ComboBox x:Name="cmbCompteBlocke" IsSynchronizedWithCurrentItem="true"  Margin="144,110,181,190" SelectionChanged="cmbCompteBlocke_SelectionChanged"/>
+                    <CheckBox x:Name="checkBoxCompteBlocke" Content="Blocke" HorizontalAlignment="Left" Margin="180,162,0,0" VerticalAlignment="Top" Checked="checkBoxCompteBlocke_Checked"/>
+                    <Button x:Name="btnBloqueDebloque" Content="Appliquer changement" HorizontalAlignment="Left" Margin="135,211,0,0" VerticalAlignment="Top" Width="147" Click="btnBloqueDebloque_Click"/>
+                </Grid>
+            </TabItem >
+        </TabControl>
+    </Grid>
+</Window>

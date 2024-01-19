@@ -1,0 +1,39 @@
+﻿<Window x:Class="SilvioBaldwinTsangaCadet_PP1_Projet.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilvioBaldwinTsangaCadet_PP1_Projet"
+        mc:Ignorable="d"
+        Title="Menu comptes" Height="650" Width="800">
+    <Grid Margin="0,0,3.333,-210.333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="719*"/>
+        </Grid.ColumnDefinitions>
+        <Label  Content="Guichet :" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Height="32" Width="54" Grid.ColumnSpan="2"/>
+        <Label x:Name="LabelGuichet" Content="  " HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Height="32" Width="82" Grid.Column="1"/>
+        <Label x:Name="LabelClient" Content="Bienveniue.... :" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Height="32" Width="194" RenderTransformOrigin="2.556,1.104" Grid.Column="1"/>
+        <Button x:Name="BtnDeconnection" Content="Se deconnecter" HorizontalAlignment="Left" Margin="607,13,0,0" VerticalAlignment="Top" Width="103" Height="29" Grid.Column="1" Click="BtnDeconnection_Click"/>
+        <Grid x:Name="compteDisplay" HorizontalAlignment="Left" Height="495" Margin="101,42,0,0" VerticalAlignment="Top" Width="481" Grid.Column="1">
+            <ComboBox x:Name="ComboBoxTypeCompte" HorizontalAlignment="Left" Margin="147,18,0,0" IsSynchronizedWithCurrentItem="true" DisplayMemberPath="TypeCompte" ItemsSource="{Binding}" VerticalAlignment="Top" Width="207" Height="38" SelectionChanged="ComboBoxTypeCompte_SelectionChanged"/>
+            <Label  Content="Compte :" HorizontalAlignment="Left" Margin="88,18,0,0" VerticalAlignment="Top" Height="32" Width="54"/>
+            <Label x:Name="soldeCompte"  Content="Solde" HorizontalAlignment="Left" Margin="197,90,0,0" VerticalAlignment="Top" Height="69" Width="179" RenderTransformOrigin="1.753,2.729"/>
+            <Label  Content="Historique de transaction" HorizontalAlignment="Left" Margin="26,179,0,0" VerticalAlignment="Top" Height="32" Width="155"/>
+            <DataGrid x:Name="listeTransactions" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="173" Margin="26,216,0,0" VerticalAlignment="Top" Width="408">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Type Transaction" Binding="{Binding Column1}" />
+                    <DataGridTextColumn Header="De" Binding="{Binding Column2}" />
+                    <DataGridTextColumn Header="À" Binding="{Binding Column3}" />
+                    <DataGridTextColumn Header="Montant ($)" Binding="{Binding Column4}" />
+                    <DataGridTextColumn Header="Date" Binding="{Binding Column5}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnDepot" Content="Depot" HorizontalAlignment="Left" Margin="67,429,0,0" VerticalAlignment="Top" Width="75" Click="btnDepot_Click"/>
+            <Button x:Name="btnRetrait" Content="Retrait" HorizontalAlignment="Left" Margin="171,429,0,0" VerticalAlignment="Top" Width="75" Click="btnRetrait_Click"/>
+            <Button x:Name="btnTransfert" Content="Transfert" HorizontalAlignment="Left" Margin="261,429,0,0" VerticalAlignment="Top" Width="75" Click="btnTransfert_Click"/>
+            <Button x:Name="btnPaiement" Content="Paiement" HorizontalAlignment="Left" Margin="359,429,0,0" VerticalAlignment="Top" Width="75" Click="btnPaiement_Click"/>
+            <Label Content="Solde du compte:" HorizontalAlignment="Left" Margin="77,90,0,0" VerticalAlignment="Top" Height="33" Width="115"/>
+        </Grid>
+    </Grid>
+</Window>
